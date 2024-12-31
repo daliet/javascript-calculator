@@ -1,6 +1,7 @@
 const screen = document.querySelector(".calculator-screen");
 const buttons = document.querySelectorAll(".numbers");
 const operationButtons = document.querySelectorAll(".operator");
+const equalButton = document.querySelector(".equal-sign");
 
 
 let currentNumber = "0";
@@ -51,5 +52,12 @@ function calculate () {
     const result = numbers.reduce(operations[operator]); // Apply the selected operator to the numbers array and perform the operation
     screen.value = result;
     numbers = [result]; // Update the numbers array with the result
+    currentNumber = "0";
 }
 
+
+equalButton.addEventListener('click', () => {
+    if(numbers.length === 0) return; // Prevent calculations if no numbers are available
+    numbers.push(parseFloat(currentNumber));
+    calculate();
+});
