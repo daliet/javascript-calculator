@@ -72,3 +72,33 @@ button:hover {
 .equal-sign:hover {
     background-color: #4e9ed4;
 }
+
+@media only screen and (max-width: 900px) { 
+    
+    .calculator {
+        width: 80%;
+    }  
+}  
+
+@media only screen and (max-width: 450px) { 
+    
+    .calculator {
+        width: 60%;
+    }    
+
+    .calculator-screen {
+        height: 6rem;
+        font-size: 3rem;
+    }
+
+    .calculator-keys {
+        padding: 0.75rem;
+        grid-gap: 0.5rem;
+    }
+    
+    
+    button {
+        height: 3.5rem;
+        font-size: 1.2rem;
+    }
+}
