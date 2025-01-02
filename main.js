@@ -2,6 +2,8 @@ const screen = document.querySelector(".calculator-screen");
 const buttons = document.querySelectorAll(".numbers");
 const operationButtons = document.querySelectorAll(".operator");
 const equalButton = document.querySelector(".equal-sign");
+const decimalButton = document.querySelector(".decimal");
+const clearButton = document.querySelector(".all-clear");
 
 
 let currentNumber = "0";
@@ -20,7 +22,7 @@ function addNumber (number) {
     if (currentNumber === "0") {
         currentNumber = number;
     } else currentNumber += number;
-    screen.value = currentNumber;
+        screen.value = currentNumber;
 }
 
 buttons.forEach (button => {
@@ -61,3 +63,24 @@ equalButton.addEventListener('click', () => {
     numbers.push(parseFloat(currentNumber));
     calculate();
 });
+
+
+
+function addDecimal () {
+    if (!currentNumber.includes(decimalButton.value)) {
+        currentNumber += decimalButton.value;
+    }
+}
+
+decimalButton.addEventListener('click', addDecimal);
+
+
+
+function resetCalculator () {
+    currentNumber = "0";
+    numbers = [];
+    operator = "";
+    screen.value = "0";
+}
+
+clearButton.addEventListener('click', resetCalculator);
