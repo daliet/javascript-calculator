@@ -19,6 +19,7 @@ const operations = {
 
 
 function addNumber (number) {
+    if(number === "0" && currentNumber === "0") return;
     if (currentNumber === "0") {
         currentNumber = number;
     } else currentNumber += number;
